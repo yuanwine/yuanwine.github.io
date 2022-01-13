@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://yuanwine.github.io/categories/</loc>
+    <lastmod>2022-01-13T21:57:42+08:00</lastmod>
+  </url><url>
+    <loc>https://yuanwine.github.io/categories/category1/</loc>
+    <lastmod>2022-01-13T21:57:42+08:00</lastmod>
+  </url><url>
+    <loc>https://yuanwine.github.io/posts/hello-hugo/</loc>
+    <lastmod>2022-01-13T21:57:42+08:00</lastmod>
+  </url><url>
+    <loc>https://yuanwine.github.io/posts/</loc>
+    <lastmod>2022-01-13T21:57:42+08:00</lastmod>
+  </url><url>
+    <loc>https://yuanwine.github.io/</loc>
+    <lastmod>2022-01-13T21:57:42+08:00</lastmod>
+  </url><url>
+    <loc>https://yuanwine.github.io/posts/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/</loc>
+    <lastmod>2022-01-12T23:23:44+08:00</lastmod>
+  </url><url>
+    <loc>https://yuanwine.github.io/tags/</loc>
+  </url>
+</urlset>

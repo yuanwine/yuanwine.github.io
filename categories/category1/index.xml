@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>category1 on 李的小黑屋</title>
+    <link>https://yuanwine.github.io/categories/category1/</link>
+    <description>Recent content in category1 on 李的小黑屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 Jan 2022 21:57:42 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/categories/category1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello Hugo</title>
+      <link>https://yuanwine.github.io/posts/hello-hugo/</link>
+      <pubDate>Thu, 13 Jan 2022 21:57:42 +0800</pubDate>
+      
+      <guid>https://yuanwine.github.io/posts/hello-hugo/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>vue环境搭建与项目创建</title>
+      <link>https://yuanwine.github.io/posts/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/</link>
+      <pubDate>Wed, 12 Jan 2022 23:23:44 +0800</pubDate>
+      
+      <guid>https://yuanwine.github.io/posts/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
