@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on 李的小黑屋</title>
-    <link>https://yuanwine.github.io/categories/hugo/</link>
+    <link>https://yuanwine.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on 李的小黑屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 21 Jan 2022 22:43:44 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jan 2022 22:43:44 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo&#43;github简单搭建个人博客</title>
       <link>https://yuanwine.github.io/posts/hugo&#43;github%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
