@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>所有分类 | 李的小黑屋</title>
+    <title>Hugo | 李的小黑屋</title>
 
     
 <link href="/me/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -19,19 +19,19 @@
 
 <meta name="generator" content="Hugo 0.92.0" />
 
-<link rel="canonical" href="https://yuanwine.github.io/categories/" />
+<link rel="canonical" href="https://yuanwine.github.io/categories/hugo/" />
 
 
-<meta property="og:title" content="Categories" />
+<meta property="og:title" content="Hugo" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://yuanwine.github.io/categories/" />
+<meta property="og:url" content="https://yuanwine.github.io/categories/hugo/" />
 
 
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Categories"/>
+<meta name="twitter:title" content="Hugo"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -145,53 +145,48 @@
 </header>
 
 
-<div class="ui container">
-  <article class="ui segment dream-categories-section">
-    <h2 class="ui header">所有分类<span class="ui grey sub header">4 分类</span>
-    </h2>
+<div class="ui relaxed grid dream-grid">
+  
+  
+  <div class="sixteen wide mobile eight wide tablet eight wide computer four wide large screen four wide widescreen column dream-column">
+    <article class="ui attached segment card dream-card">
+  
+  <a class="image" href="https://yuanwine.github.io/posts/hugo&#43;github%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    
+    <img src="/img/1642762400899.jpg" alt="Hugo&#43;github简单搭建个人博客" />
+    
+  </a>
+  
 
-    
-    <h3 class="ui header">
-      <a href="/categories/datagrip/">DataGrip</a>&nbsp;1篇文章</h3>
-    <ul>
-      
-      <li>
-        <a href="/posts/datagrip/">DataGrip</a>
-      </li>
-      
-    </ul>
-    
-    <h3 class="ui header">
-      <a href="/categories/hugo/">Hugo</a>&nbsp;1篇文章</h3>
-    <ul>
-      
-      <li>
-        <a href="/posts/hugo&#43;github%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hugo&#43;github简单搭建个人博客</a>
-      </li>
-      
-    </ul>
-    
-    <h3 class="ui header">
-      <a href="/categories/mysql/">MySQL</a>&nbsp;1篇文章</h3>
-    <ul>
-      
-      <li>
-        <a href="/posts/mysql8.0.27/">MySQL8.0.27安装配置</a>
-      </li>
-      
-    </ul>
-    
-    <h3 class="ui header">
-      <a href="/categories/vue/">vue</a>&nbsp;1篇文章</h3>
-    <ul>
-      
-      <li>
-        <a href="/posts/vue%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA/">vue环境搭建与项目创建</a>
-      </li>
-      
-    </ul>
-    
-  </article>
+  
+  <div class="content">
+  
+    <h2 class="ui medium header">
+      <a href="/posts/hugo&#43;github%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hugo&#43;github简单搭建个人博客</a>
+    </h2>
+    <div class="meta">
+      <p class="date">
+        
+          <span data-format="luxon">2022-01-21T22:43:44&#43;08:00</span>
+        
+      </p>
+    </div>
+    <div class="description">
+      <!-- raw HTML omitted -->
+    </div>
+  </div>
+
+  <div class="extra content">
+    <div class="author">@&nbsp;优秀的李</div>
+    <div class="reading-time">
+      <i class="clock icon"></i>1 分钟阅读</div>
+  </div>
+</article>
+
+  </div>
+  
+
+  
 </div>
 
 
@@ -336,7 +331,28 @@
 <script src="/js/main.js"></script>
 <script src="/js/theme.js"></script>
 
-     
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0" integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0=" crossorigin="anonymous"></script>
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
+<script src="/js/grid.js"></script>
+
 
     
 
