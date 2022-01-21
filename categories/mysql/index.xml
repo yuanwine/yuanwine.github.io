@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MySQL on 李的小黑屋</title>
+    <link>https://yuanwine.github.io/categories/mysql/</link>
+    <description>Recent content in MySQL on 李的小黑屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Fri, 21 Jan 2022 01:16:28 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/categories/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL8.0.27安装配置</title>
+      <link>https://yuanwine.github.io/posts/mysql8.0.27/</link>
+      <pubDate>Fri, 21 Jan 2022 01:16:28 +0800</pubDate>
+      
+      <guid>https://yuanwine.github.io/posts/mysql8.0.27/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

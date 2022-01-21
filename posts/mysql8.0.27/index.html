@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MySQL8.0.27安装配置 | 李的小黑屋</title>
+
+    
+<link href="/me/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+
+
+
+<meta name="author" content="优秀的李" />
+<meta name="description" content="" />
+
+
+
+<meta name="generator" content="Hugo 0.92.0" />
+
+<link rel="canonical" href="https://yuanwine.github.io/posts/mysql8.0.27/" />
+
+
+<meta property="og:title" content="MySQL8.0.27安装配置" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yuanwine.github.io/posts/mysql8.0.27/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-21T01:16:28+08:00" />
+<meta property="article:modified_time" content="2022-01-21T01:16:28+08:00" />
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL8.0.27安装配置"/>
+<meta name="twitter:description" content=""/>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" integrity="sha256-UXesixbeLkB/UYxVTzuj/gg3+LMzgwAmg3zD+C4ZASQ=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/icomoon.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/css/OverlayScrollbars.min.css" integrity="sha256-WKijf8KI68sbq8Znd6yMepIuFF0wdWfIt6gk3JWcQfk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css">
+<link rel="stylesheet" href="/css/site.css" />
+
+<style>
+  .ui.header a:not(.item, .ui.button):hover {
+    text-decoration: underline;
+  }
+
+  
+  a:not(.item, .ui.button) {
+    color: seagreen !important;
+  }
+  
+
+  
+  .inverted a:not(.item, .ui.button) {
+     color: darkseagreen !important;
+  }
+  
+
+  
+  body.default {
+    
+    background-color: #f7f7f7;
+    
+
+    
+    background-image: url(/me/background.jpg);
+    
+  }
+  
+
+  
+  body.dark {
+    
+    background-color: black;
+    
+
+    
+    background-image: url(/me/background-dark.jpg);
+    
+  }
+  
+</style>
+
+
+    
+
+
+
+<link rel="stylesheet" data-highlight href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/gruvbox-light.min.css" />
+
+
+
+
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+
+
+
+    
+    <link rel="stylesheet" href="/css/custom.css" />
+    
+  </head>
+
+  <body class="default">
+    
+<nav class="ui secondary menu dream-menu dream-nav">
+
+  <a class="item dream-flip-toggle" title="翻转！">
+    <i class="large link bullseye icon"></i>
+  </a>
+  <a class="item" href="https://yuanwine.github.io" title="首页">
+    <i class="large link home icon"></i>
+  </a>
+  
+  <a class="item" onclick="themeSwitch(event)">
+    <i class="large link icon theme-switch"></i>
+  </a>
+  
+  
+</nav>
+
+    <div class="flip-container">
+      <div class="flipper">
+        <section class="front">
+          <div class="dream-max-width">
+            
+<div class="ui relaxed centered grid dream-grid dream-grid-single"style="flex-direction: row-reverse;">
+  
+  
+  
+  
+
+  
+  <aside class="sixteen wide mobile sixteen wide tablet three wide computer column dream-single-aside">
+    
+    <div class="ui segment toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1mysql安装包下载">1.MySQL安装包下载</a></li>
+    <li><a href="#2配置myini文件">2.配置my.ini文件</a></li>
+    <li><a href="#3初始化数据库">3.初始化数据库</a></li>
+    <li><a href="#4安装mysql服务并启动修改密码">4.安装mysql服务并启动+修改密码</a></li>
+    <li><a href="#5配置环境">5.配置环境</a></li>
+    <li><a href="#六mysql常见命令">六.MySQL常见命令</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    
+  </aside>
+  
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column markdown-body dream-single" id="dream-save-post-as-img">
+    <section class="ui segment">
+      <header>
+        <h1 class="ui large header">MySQL8.0.27安装配置<span class="sub header">
+            <span class="left">
+              @
+              
+                
+                  优秀的李
+                
+              
+
+              | 
+                  <span data-format="luxon">2022-01-21T01:16:28&#43;08:00</span>
+                
+
+              | 1 分钟阅读
+
+              
+            </span>
+
+            
+            <span class="dream-share">
+  <a href="#" class="save-as-image" title="保存为图片" onclick="savePostAsImg()">
+    <i class="save icon"></i>
+  </a>
+  <a href="https://twitter.com/intent/tweet?text=MySQL8.0.27%e5%ae%89%e8%a3%85%e9%85%8d%e7%bd%ae&url=https%3a%2f%2fyuanwine.github.io%2fposts%2fmysql8.0.27%2f" title="Twitter">
+    <i class="twitter icon"></i>
+  </a>
+  <a href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fyuanwine.github.io%2fposts%2fmysql8.0.27%2f" title="Facebook">
+    <i class="facebook icon"></i>
+  </a>
+</span>
+
+            
+          </span>
+        </h1>
+      </header>
+
+      <article class="main">
+        
+        <img class="cover" src="/img/cover.jpg" />
+        
+
+        <!-- raw HTML omitted -->
+<h2 id="1mysql安装包下载">1.MySQL安装包下载</h2>
+<ul>
+<li>官网下载：(<a href="https://www.mysql.com">https://www.mysql.com</a>)</li>
+</ul>
+<p><img src="/image/14.png" alt=""></p>
+<ul>
+<li>置底</li>
+</ul>
+<p><img src="/image/15.png" alt=""></p>
+<p><img src="/image/16.png" alt=""></p>
+<h2 id="2配置myini文件">2.配置my.ini文件</h2>
+<ul>
+<li>
+<p>解压缩后如下图：
+<img src="/image/17.png" alt=""></p>
+</li>
+<li>
+<p>在上图所示根目录下配置文件</p>
+<p>右键创建一个文本(.text)</p>
+<p>修改文本为my.ini(.ini文件格式与.text类似)</p>
+</li>
+</ul>
+<p><img src="/image/18.png" alt=""></p>
+<p>将下面的内容复制到my.ini中(将mysql的安装目录改成自己的下载路径)</p>
+<p>不需要自己创建data存放路径MySQL会自己生成data文件</p>
+<pre tabindex="0"><code class="language-[mysqld]" data-lang="[mysqld]"># 设置3306端口
+port=3306
+# 设置mysql的安装目录——文件路径
+basedir=D:\MySQL\mysql-8.0.27-winx64
+# 允许最大连接数
+max_connections=200
+# 允许连接失败的次数。
+max_connect_errors=10
+# 服务端使用的字符集默认为utf8mb4
+character-set-server=utf8mb4
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+# 默认使用“mysql_native_password”插件认证
+#mysql_native_password
+default_authentication_plugin=mysql_native_password
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8mb4
+[client]
+# 设置mysql客户端连接服务端时默认使用的端口
+port=3306
+default-character-set=utf8mb4
+</code></pre><h2 id="3初始化数据库">3.初始化数据库</h2>
+<ul>
+<li>
+<p>初始化mysql,在安装时避免权限问题以管理员身份运行cmd</p>
+<pre><code>  win+r输入cmd,ctrl+shift+enter以管理员身份运行
+</code></pre>
+</li>
+<li>
+<p>否则在安装时可能会报错，导致安装失败</p>
+</li>
+<li>
+<p>D: 转到你所安装的盘下</p>
+<pre><code>  cd bin的路径 转到bin下
+</code></pre>
+</li>
+<li>
+<p>初始化mysql输入：</p>
+<pre><code>  mysqld --initialize --console   
+</code></pre>
+<p>记住初始化密码复制root@localhost:之后的密码( : 后有一个空格，不复制)忘记了就重新初始化.</p>
+<p>OX:XYkuUm4hj</p>
+</li>
+</ul>
+<p><img src="/image/19.png" alt=""></p>
+<h2 id="4安装mysql服务并启动修改密码">4.安装mysql服务并启动+修改密码</h2>
+<ul>
+<li>
+<p>安装mysql服务</p>
+<pre><code>  mysqld --install mysql
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/20.png" alt=""></p>
+<ul>
+<li>
+<p>启动mysql服务</p>
+<pre><code>  net start mysql
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/21.png" alt=""></p>
+<ul>
+<li>
+<p>连接mysql</p>
+<pre><code>  mysql -uroot -p
+</code></pre>
+</li>
+<li>
+<p>输入初始密码</p>
+</li>
+</ul>
+<p><img src="/image/22.png" alt=""></p>
+<ul>
+<li>
+<p>修改密码——</p>
+<pre><code>  ALTER USER 'root'@'localhost' IDENTIFIED BY '123456';
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/23.png" alt=""></p>
+<h2 id="5配置环境">5.配置环境</h2>
+<ul>
+<li>编辑系统变量</li>
+</ul>
+<p><img src="/image/24.png" alt=""></p>
+<p><img src="/image/25.png" alt=""></p>
+<p><img src="/image/26.png" alt=""></p>
+<ul>
+<li>在path中新建俩环境变量</li>
+</ul>
+<p><img src="/image/27.png" alt=""></p>
+<h2 id="六mysql常见命令">六.MySQL常见命令</h2>
+<ul>
+<li>
+<p>显示本机数据库：</p>
+<pre><code>  show databases;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/28.png" alt=""></p>
+<ul>
+<li>
+<p>连接数据库(sys)：</p>
+<pre><code>  use &lt;数据库&gt;;
+
+  use sys;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/29.png" alt=""></p>
+<ul>
+<li>
+<p>显示数据库(sys)中的表：</p>
+<pre><code>  show tables;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/30.png" alt="">
+&hellip;</p>
+<ul>
+<li>
+<p>在(sys)库中查看mysql库中的表：</p>
+<pre><code>  show tables from mysql;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/31.png" alt=""></p>
+<ul>
+<li>
+<p>当前选择的数据库：</p>
+<pre><code>  select database();
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/32.png" alt=""></p>
+<ul>
+<li>
+<p>创建一个(lhy)数据库：</p>
+<pre><code>  create database lhy;
+
+  create database &lt;数据库&gt;;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/33.png" alt=""></p>
+<ul>
+<li>
+<p>创建一个表(TheCollege)在库(lhy)中：</p>
+<pre><code>  create table &lt;表名&gt; ( &lt;字段名1&gt; &lt;类型1&gt; [,..&lt;字段名n&gt; &lt;类型n&gt;]);
+
+  &gt; create table TheCollege(
+  -&gt; id int,
+  -&gt; name varchar(20)
+  -&gt; );
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/34.png" alt=""></p>
+<ul>
+<li>
+<p>查看表(TheCollege)的结构：</p>
+<pre><code>  desc TheCollege;
+
+  desc &lt;表名&gt;;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/35.png" alt=""></p>
+<ul>
+<li>
+<p>查看表(TheCollege)中数据：</p>
+<pre><code>  select * from TheCollege;
+
+  select * from &lt;表名&gt;;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/36.png" alt=""></p>
+<ul>
+<li>
+<p>给表插入数据：</p>
+<pre><code>  insert into TheCollege (id,name) values(10590,'深圳大学');
+
+
+  insert into &lt;表名&gt; (&lt;字段名1&gt;,...&lt;字段名n&gt;) values (值1,...值n);
+</code></pre>
+<p>如果数据是字符型，必须使用单引号或者双引号括起来。</p>
+</li>
+</ul>
+<p><img src="/image/37.png" alt=""></p>
+<ul>
+<li>
+<p>修改表中数据：</p>
+<pre><code>  update TheCollege set name='华南理工' where id=10561;
+
+  update 表名 set 字段=新值,… where 条件
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/38.png" alt=""></p>
+<ul>
+<li>
+<p>删除表中数据：</p>
+<pre><code>  delete from TheCollege where id=10561;
+
+  delete from 表名 where 表达式;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/39.png" alt=""></p>
+<ul>
+<li>
+<p>删除数据库(lhy)：</p>
+<pre><code>  drop database lhy;
+
+  drop database &lt;数据库&gt;;
+</code></pre>
+</li>
+</ul>
+<p><img src="/image/40.png" alt=""></p>
+<!-- raw HTML omitted -->
+      </article>
+    </section>
+
+    
+
+    
+
+    
+    <article class="ui segment" data-html2canvas-ignore>
+      <div id="vcomments"></div>
+    </article>
+
+    <script>
+      new Valine({
+        el: '#vcomments',
+        appId: '',
+        appKey: '',
+        lang: ''
+      })
+    </script>
+    
+  </div>
+</div>
+
+
+            <footer class="ui basic center aligned segment" style="background-color: transparent;">
+              
+              <p>© 2022 李的小黑屋</p>
+              
+
+              <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+
+              
+            </footer>
+          </div>
+        </section>
+        <section class="back">
+          <div class="dream-max-width">
+            <header class="ui basic very padded segment dream-header">
+  
+  <div class="ui small circular image">
+    <img src="/img/avatar.jpeg" alt="avatar" />
+  </div>
+  
+
+  <div class="content">
+    <h1 class="ui medium header">优秀的李<span class="sub header"></span>
+    </h1>
+
+    <article class="ui horizontal list">
+      
+      <a class="item" href="/posts">
+        <i class="archive icon" title="归档"></i>
+      </a>
+      
+      <a class="item" href="/categories">
+        <i class="th list icon" title="所有分类"></i>
+      </a>
+      <a class="item" href="/tags">
+        <i class="tags icon" title="所有标签"></i>
+      </a>
+    </article>
+
+    
+  </div>
+</header>
+
+
+<div class="ui relaxed grid dream-grid dream-back">
+  
+  
+  
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    <article class="ui segment">
+      <div class="ui medium header">社交链接</div>
+      <nav class="ui secondary menu dream-menu dream-socials">
+  
+  <a class="item" href="/index.xml">
+    <i class="large rss square icon" title="RSS"></i>
+  </a>
+  
+
+  
+  <a class="item" href="mailto:g1enyy0ung@gmail.com">
+    <i class="large mail icon" title="Email"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</nav>
+
+    </article>
+  </div>
+
+  <div class="sixteen wide mobile eight wide tablet four wide computer column dream-column">
+    
+  </div>
+
+  
+</div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js" integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
+
+    
+
+    
+
+    <script>
+  window.background = "#f7f7f7"
+  window.defaultDark =  null 
+  window.backgroundDark = "black"
+  window.backgroundImageDark = "/me/background-dark.jpg"
+  window.darkNav =  true 
+  window.maxTags =  5 
+  window.hasTwitterEmbed =  true 
+  window.fixedNav =  true 
+
+  if (window.hasTwitterEmbed) {
+    
+    window.twttr = (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {}
+      if (d.getElementById(id)) return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore(js, fjs)
+
+      t._e = []
+      t.ready = function (f) {
+        t._e.push(f)
+      }
+
+      return t
+    })(document, 'script', 'twitter-wjs')
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@1.13.1/js/jquery.overlayScrollbars.min.js" integrity="sha256-tBd38uWlvgfps3zHPrUb2ePBg+Z8EjMf0QloFONzpvU=" crossorigin="anonymous"></script>
+<script src="/js/header.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/theme.js"></script>
+
+    
+
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0" integrity="sha256-4sbTzmCCW9LGrIh5OsN8V5Pfdad1F1MwhLAOyXKnsE0=" crossorigin="anonymous"></script>
+<script>
+  format()
+
+  function format() {
+    $('span[data-format="luxon"]').each(function () {
+      var date = $(this).text()
+
+      $(this).text(luxon.DateTime.fromISO(date, { locale: "zh" }).toFormat("yyyy年MM月dd日"))
+    })
+  }
+</script>
+
+
+
+<script src="/js/scrollToTop.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/languages/ocaml.min.js"></script>
+
+
+
+<script>
+  hljs.highlightAll()
+  setHighlightTheme()
+
+  function setHighlightTheme() {
+    var isDark = localStore.getItem('hugo-theme-dream-is-dark')
+    isDark = isDark ? isDark : window.defaultDark ? 'y' : isDark
+
+    var lightTheme = "gruvbox-light"
+    var darkTheme = "gruvbox-dark"
+    var theme = isDark === 'y' ? darkTheme : lightTheme
+
+    $('link[data-highlight]').attr('href', 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/' + theme + '.min.css')
+    $('pre').css('background', isDark === 'y' ? '#333' : '')
+  }
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js" integrity="sha256-uacRffSSMP9qpvNWhVmYLykBv9YKMA1d/VSIN1AmfyQ=" crossorigin="anonymous"></script>
+<script src="/js/post.js" defer></script>
+
+
+    
+
+    
+  </body>
+</html>
