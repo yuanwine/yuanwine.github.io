@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 李的小黑屋</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
-    <lastBuildDate>Fri, 21 Jan 2022 22:43:44 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Feb 2022 12:47:22 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oracle 11g</title>
+      <link>https://yuanwine.github.io/posts/oracle-11g/</link>
+      <pubDate>Sun, 27 Feb 2022 12:47:22 +0800</pubDate>
+      
+      <guid>https://yuanwine.github.io/posts/oracle-11g/</guid>
+      <description>&lt;!-- Cut out summary from your post content here. --&gt;</description>
+    </item>
+    
     <item>
       <title>Hugo&#43;github简单搭建个人博客</title>
       <link>https://yuanwine.github.io/posts/hugo&#43;github%E7%AE%80%E5%8D%95%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>

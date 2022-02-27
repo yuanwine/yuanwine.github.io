@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on 李的小黑屋</title>
+    <link>https://yuanwine.github.io/categories/database/</link>
+    <description>Recent content in Database on 李的小黑屋</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 27 Feb 2022 12:47:22 +0800</lastBuildDate><atom:link href="https://yuanwine.github.io/categories/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oracle 11g</title>
+      <link>https://yuanwine.github.io/posts/oracle-11g/</link>
+      <pubDate>Sun, 27 Feb 2022 12:47:22 +0800</pubDate>
+      
+      <guid>https://yuanwine.github.io/posts/oracle-11g/</guid>
+      <description>&lt;!-- Cut out summary from your post content here. --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
